@@ -1,98 +1,215 @@
-import { Image } from 'expo-image';
-import { Platform, StyleSheet } from 'react-native';
+import {
+  View, 
+  Text, 
+  TextInput, 
+  TouchableOpacity,
+  Image, 
+  StyleSheet, 
+  KeyboardAvoidingView, 
+  Platform,
+} from 'react-native';
 
-import { HelloWave } from '@/components/hello-wave';
-import ParallaxScrollView from '@/components/parallax-scroll-view';
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
-import { Link } from 'expo-router';
-
-export default function HomeScreen() {
+export default function TelaLogin() {
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12',
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <Link href="/modal">
-          <Link.Trigger>
-            <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-          </Link.Trigger>
-          <Link.Preview />
-          <Link.Menu>
-            <Link.MenuAction title="Action" icon="cube" onPress={() => alert('Action pressed')} />
-            <Link.MenuAction
-              title="Share"
-              icon="square.and.arrow.up"
-              onPress={() => alert('Share pressed')}
-            />
-            <Link.Menu title="More" icon="ellipsis">
-              <Link.MenuAction
-                title="Delete"
-                icon="trash"
-                destructive
-                onPress={() => alert('Delete pressed')}
-              />
-            </Link.Menu>
-          </Link.Menu>
-        </Link>
+    <KeyboardAvoidingView
+      style={styles.container}
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+    >
+      <View style={styles.window}>
+        
+        {/* Barra de Título */}
+        <View style={styles.titleBar}>
+          <Text style={styles.titleBarText}>CrowOS_Auth.exe</Text>
+          <View style={styles.titleBarButtons}>
+            <View style={styles.miniButton}><Text style={styles.miniButtonText}>_</Text></View>
+            <View style={styles.miniButton}><Text style={styles.miniButtonText}>X</Text></View>
+          </View>
+        </View>
 
-        <ThemedText>
-          {`Tap the Explore tab to learn more about what's included in this starter app.`}
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          {`When you're ready, run `}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+        <View style={styles.windowContent}>
+          <View style={styles.logoContainer}>
+            <Image
+              source={require('../../assets/images/logo-crow.png')} 
+              style={styles.logo}
+              resizeMode="contain" 
+            />
+          </View>
+
+          <Text style={styles.loginTitle}>Acesso ao Terminal</Text>
+
+          <View style={styles.inputGroup}>
+            <Text style={styles.label}>Usuário:</Text>
+            <TextInput
+              style={styles.input}
+              placeholder="root@crowos"
+              placeholderTextColor="#444"
+              keyboardType="email-address"
+            />
+          </View>
+
+          <View style={styles.inputGroup}>
+            <Text style={styles.label}>Senha:</Text>
+            <TextInput
+              style={styles.input}
+              placeholder="********"
+              placeholderTextColor="#444"
+              secureTextEntry={true}
+            />
+          </View>
+
+          {/* Novos botões de apoio */}
+          <View style={styles.linksContainer}>
+            <TouchableOpacity>
+              <Text style={styles.linkText}>[Esqueceu a senha?]</Text>
+            </TouchableOpacity>
+            <TouchableOpacity>
+              <Text style={styles.linkText}>[Novo Usuário]</Text>
+            </TouchableOpacity>
+          </View>
+
+          <TouchableOpacity style={styles.button}>
+            <Text style={styles.buttonText}>OK</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.button}>
+            <Text style={styles.buttonText}>Cancelar</Text>
+          </TouchableOpacity>
+
+          <View style={styles.footer}>
+            <Text style={styles.footerText}>Versão ALPHA0.1 - Build 001</Text>
+          </View>
+        </View>
+      </View>
+    </KeyboardAvoidingView>
   );
 }
 
 const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
+  container: { 
+    flex: 1, 
+    backgroundColor: '#000',
+    justifyContent: 'center',
     alignItems: 'center',
-    gap: 8,
   },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
+  window: {
+    backgroundColor: '#1a1a1a', 
+    width: '85%',
+    borderWidth: 2,
+    borderTopColor: '#333',
+    borderLeftColor: '#333',
+    borderRightColor: '#050505',
+    borderBottomColor: '#050505',
+    padding: 2,
   },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
+  titleBar: {
+    backgroundColor: '#333', 
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: 8,
+    paddingVertical: 4,
   },
+  titleBarText: {
+    color: '#FFF',
+    fontWeight: 'bold',
+    fontSize: 12,
+    fontFamily: Platform.OS === 'ios' ? 'Courier' : 'monospace',
+  },
+  titleBarButtons: {
+    flexDirection: 'row',
+  },
+  miniButton: {
+    backgroundColor: '#1a1a1a',
+    borderWidth: 1,
+    borderColor: '#444',
+    width: 18,
+    height: 18,
+    marginLeft: 2,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  miniButtonText: {
+    color: '#FFF',
+    fontSize: 10,
+    fontWeight: 'bold',
+  },
+  windowContent: {
+    padding: 20,
+  },
+  logoContainer: {
+    alignItems: 'center',
+    marginBottom: 15,
+  },
+  logo: {
+    width: 150, // Aumentado conforme seu pedido anterior
+    height: 150,
+  },
+  loginTitle: {
+    color: '#00FF41',
+    textAlign: 'center',
+    marginBottom: 20,
+    fontFamily: Platform.OS === 'ios' ? 'Courier' : 'monospace',
+    textTransform: 'uppercase',
+  },
+  inputGroup: {
+    marginBottom: 15,
+  },
+  label: {
+    color: '#AAA',
+    fontSize: 12,
+    marginBottom: 5,
+    fontFamily: Platform.OS === 'ios' ? 'Courier' : 'monospace',
+  },
+  input: {
+    backgroundColor: '#000',
+    borderWidth: 2,
+    borderTopColor: '#050505', 
+    borderLeftColor: '#050505',
+    borderRightColor: '#333',
+    borderBottomColor: '#333',
+    padding: 10,
+    color: '#FFF',
+    fontSize: 14,
+    fontFamily: Platform.OS === 'ios' ? 'Courier' : 'monospace',
+  },
+  linksContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 15,
+    marginTop: 5,
+  },
+  linkText: {
+    color: '#00FF41',
+    fontSize: 10,
+    fontFamily: Platform.OS === 'ios' ? 'Courier' : 'monospace',
+  },
+  button: {
+    backgroundColor: '#1a1a1a',
+    borderWidth: 2,
+    borderTopColor: '#444',
+    borderLeftColor: '#444',
+    borderRightColor: '#000',
+    borderBottomColor: '#000',
+    paddingVertical: 10,
+    marginTop: 10,
+    alignItems: 'center',
+  },
+  buttonText: {
+    color: '#FFF',
+    fontWeight: 'bold',
+    textTransform: 'uppercase',
+    fontFamily: Platform.OS === 'ios' ? 'Courier' : 'monospace',
+  },
+  footer: {
+    marginTop: 25,
+    borderTopWidth: 1,
+    borderTopColor: '#333',
+    paddingTop: 10,
+    alignItems: 'center',
+  },
+  footerText: {
+    color: '#444',
+    fontSize: 10,
+    fontFamily: Platform.OS === 'ios' ? 'Courier' : 'monospace',
+  }
 });
