@@ -1,50 +1,32 @@
-# Welcome to your Expo app 👋
+CrowOS - Sistema de Autenticação
+Este projeto faz parte da Aula 4 - Primeira Tela Estática da disciplina de Aplicações Móveis.
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Sobre o Projeto
+O CrowOS é uma interface de login que utiliza uma estética Retro-Dark, inspirada no design de sistemas operacionais clássicos (Windows 95/98), mas adaptada para um esquema de cores moderno e escuro.
 
-## Get started
+Requisitos Atendidos (Aula 4)
+Componentes Fundamentais: Uso de View, Text, Image, TextInput e TouchableOpacity.
 
-1. Install dependencies
+Estilização: Implementação de bordas com efeito 3D (Bevel) via StyleSheet.
 
-   ```bash
-   npm install
-   ```
+Layout: Uso estratégico de Flexbox para centralização e alinhamento de elementos.
 
-2. Start the app
+Usabilidade: Campo de senha seguro e ajuste de layout para teclado (KeyboardAvoidingView).
 
-   ```bash
-   npx expo start
-   ```
+Personalização: Identidade visual exclusiva para o projeto integrador da equipe.
 
-In the output, you'll find options to open the app in a
+Especificações Visuais
+Fundo: Preto (#000)
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+Janela: Cinza Chumbo (#1A1A1A)
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+Destaques: Verde Terminal (#00FF41)
 
-## Get a fresh project
+Botões: Branco com alto contraste.
 
-When you're ready, run:
+Como rodar
+Instale as dependências: npm install
 
-```bash
-npm run reset-project
-```
+Inicie o Expo: npx expo start
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Escaneie o QR Code com o app Expo Go.
