@@ -22,25 +22,3 @@ O CrowOS é uma interface de login que utiliza uma estética Retro-Dark, inspira
 1. Instale as dependências:
    ```bash
    npm install
-
-   Inicie o Expo:
-
-Bash
-npx expo start
-
-Escaneie o QR Code com o app Expo Go no seu dispositivo móvel.
-
-
----
-
-### Como aplicar essa formatação agora:
-
-1.  Abra o seu arquivo `README.md` no VS Code.
-2.  Apague tudo e cole o código acima.
-3.  Salve o arquivo (**Ctrl + S**).
-4.  No terminal, rode os comandos para atualizar o GitHub:
-
-```bash
-git add README.md
-git commit -m "Docs: Formatacao final do README"
-git push origin main
