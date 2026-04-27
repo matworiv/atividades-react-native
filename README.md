@@ -24,5 +24,5 @@ O CrowOS é uma interface de login que utiliza uma estética Retro-Dark, inspira
    npm install
 2. Inicie o Expo:
 
-Bash
+```Bash
 npx expo start
